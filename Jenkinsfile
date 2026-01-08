@@ -2,20 +2,23 @@ pipeline {
     agent any
 
     parameters {
+        string(name: 'VM_NAME', defaultValue: 'vm', description: 'VM name prefix')
+        choice(name: 'MEMORY', choices: ['2048', '4096', '8192', '16384'], description: 'Memory (MB)')
+        choice(name: 'CORES', choices: ['1', '2', '4', '6', '8'], description: 'CPU cores')
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
         choice(name: 'action', choices: ['apply', 'destroy'], description: 'Select the action to perform')
     }
 
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        AWS_DEFAULT_REGION    = 'ap-south-1'
+        // Jenkins credentials (create these locally; values never live in git)
+        PM_API_TOKEN_ID     = credentials('PM_API_TOKEN_ID')
+        PM_API_TOKEN_SECRET = credentials('PM_API_TOKEN_SECRET')
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/CodeSagarOfficial/jenkins-scripts.git'
+                git branch: 'main', url: 'https://github.com/olomisore/lab-jenkins.git'
             }
         }
         stage('Terraform init') {
