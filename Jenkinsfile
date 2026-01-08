@@ -11,6 +11,7 @@ pipeline {
 
     environment {
         // Jenkins credentials (create these locally; values never live in git)
+        PM_API_URL = "${env.PM_API_URL ?: 'https://100.123.73.123:8006/api2/json'}"
         PM_API_TOKEN_ID     = credentials('PM_API_TOKEN_ID')
         PM_API_TOKEN_SECRET = credentials('PM_API_TOKEN_SECRET')
     }
