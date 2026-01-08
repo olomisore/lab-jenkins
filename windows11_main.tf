@@ -15,6 +15,11 @@ provider "proxmox" {
   pm_api_token_id = "Terraform@pam!terraform"
   pm_api_token_secret = "ccbe9edb-7349-4572-a05d-405521b5474f"
   pm_tls_insecure = true
+
+  pm_api_url          = var.pm_api_url
+  pm_api_token_id     = var.pm_api_token_id
+  pm_api_token_secret = var.pm_api_token_secret
+  pm_tls_insecure     = var.pm_tls_insecure
  
   ### for bpg configurations
   #endpoint = "https://100.123.73.123:8006/api2/json"
