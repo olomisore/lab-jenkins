@@ -11,24 +11,24 @@ variable "pm_api_token_secret" {
   sensitive   = true
 }
 
-variable "vm_name" {
-  description = "Name of the VM in Proxmox"
-  type        = string
-}
+# variable "vm_name" {
+#  description = "Name of the VM in Proxmox"
+#  type        = string
+#}
 
-variable "vmid" {
-  description = "Unique VM ID in Proxmox"
-  type        = number
-}
+# variable "vmid" {
+#  description = "Unique VM ID in Proxmox"
+#  type        = number
+# }
 
-variable "memory" {
-  description = "VM memory in MB"
-  type        = number
-  default     = 4096
-}
+# variable "memory" {
+#  description = "VM memory in MB"
+#  type        = number
+#  default     = 4096
+# }
 
-variable "cores" {
-  description = "Number of CPU cores"
-  type        = number
-  default     = 2
-}
+# variable "cores" {
+#  description = "Number of CPU cores"
+#  type        = number
+#  default     = 2
+# }
